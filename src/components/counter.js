@@ -1,5 +1,6 @@
 import React from "react";
 import {Col, Row} from "react-bootstrap";
+import { connect } from "react-redux";
 
 const Counter = ({counter, inc, dec, rnd}) => {
     return (
@@ -18,4 +19,10 @@ const Counter = ({counter, inc, dec, rnd}) => {
     )
 }
 
-export default Counter;
+const mapStateToProps = (state) => {
+    return {
+        counter: state
+    }
+}
+
+export default connect(mapStateToProps)(Counter);
